@@ -1,6 +1,9 @@
 package com.springhow.examples.jpa.domain.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -13,8 +16,11 @@ public class Account {
 
     String accountNumber;
     String fullName;
+
+    @JsonBackReference
     @ManyToOne
     Branch branch;
+
     BigDecimal balance;
 
     public Integer getId() {

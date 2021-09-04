@@ -1,10 +1,8 @@
 package com.springhow.examples.jpa.domain.entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Branch {
@@ -14,6 +12,9 @@ public class Branch {
     Integer id;
     String branchCode;
     String branchName;
+
+    @OneToMany(mappedBy = "branch")
+    List<Account> accounts;
 
     public Integer getId() {
         return id;
@@ -37,5 +38,13 @@ public class Branch {
 
     public void setBranchName(String branchName) {
         this.branchName = branchName;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 }

@@ -1,6 +1,7 @@
 package com.springhow.examples.jpa.controllers;
 
 import com.springhow.examples.jpa.domain.entities.Account;
+import com.springhow.examples.jpa.domain.entities.Branch;
 import com.springhow.examples.jpa.services.AccountService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,4 +29,5 @@ public class AccountController {
     public List<Account> getAccounts(@RequestParam("branchCode") String branchCode) {
         return accountService.getAccounts(branchCode);
     }
+
 }
